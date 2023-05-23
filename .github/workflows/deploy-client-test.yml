@@ -1,0 +1,35 @@
+name: Deploy Client Test
+
+on:
+  push:
+    branches: [feat-inatatsu]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: test
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: ./.github/actions/setup
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - uses: actions/checkout@v3
+
+      - name: Output
+        run: echo 'Hello World!'
+
+      # - name: generate env key
+      #   run: echo "$CLIENT_ENV" > src/client/.env
+      #   env:
+      #     CLIENT_ENV: ${{ secrets.CLIENT_ENV }}
+
+      # - name: Deploy
+      #   run: make deploy-actions
+      #   env:
+      #     FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

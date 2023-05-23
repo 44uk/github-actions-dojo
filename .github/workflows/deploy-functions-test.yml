@@ -1,0 +1,41 @@
+name: Deploy Functions Test
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: test
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: ./.github/actions/setup
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - uses: actions/checkout@v3
+
+      - name: Output
+        run: echo 'Hello World!'
+
+      # - name: generate env key
+      #   run: echo "$CLIENT_ENV" > src/client/.env
+      #   env:
+      #     CLIENT_ENV: ${{ secrets.CLIENT_ENV_STG }}
+
+      # - name: Deploy
+      #   run: |
+      #     firebase use test
+      #     yarn workspace @juggle/functions clean
+      #     yarn workspace @juggle/functions build
+      #     mkdir -p ./src/functions/lib/functions/src/signing/v1/views/mail/
+      #     mkdir -p ./src/functions/lib/functions/src/signing/v1/locales/
+      #     cp ./src/functions/src/signing/v1/views/mail/*.ejs ./src/functions/lib/functions/src/signing/v1/views/mail
+      #     cp ./src/functions/src/signing/v1/locales/*.json ./src/functions/lib/functions/src/signing/v1/locales
+      #     firebase deploy --only functions --token ${FIREBASE_TOKEN}
+      #   env:
+      #     FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

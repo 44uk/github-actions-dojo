@@ -1,0 +1,21 @@
+name: Setup environment
+description: "[Test] Composite Action"
+
+inputs:
+  node-version:
+    required: true
+
+runs:
+  using: setup
+  steps:
+    - name: Use Node.js ${{ inputs.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: 'npm'
+
+    - name: package install
+      run: yarn
+
+    - name: firebase tools install
+      run: yarn global add firebase-tools
