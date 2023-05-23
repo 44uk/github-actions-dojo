@@ -9,6 +9,7 @@ runs:
   using: setup
   steps:
     - name: Output
+      shell: bash
       run: echo 'Hello World!' ${{ inputs.node-version }}
 
     - name: Use Node.js ${{ inputs.node-version }}
