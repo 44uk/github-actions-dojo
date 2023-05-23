@@ -3,20 +3,21 @@ description: "[Test] Composite Action"
 
 inputs:
   node-version:
+    description: Node.js version
     required: true
 
 runs:
-  using: setup
+  using: setup Node.js & yarn
   steps:
-    - name: Output
-      shell: bash
-      run: echo 'Hello World!' ${{ inputs.node-version }}
+    # - name: Output
+    #   shell: bash
+    #   run: echo 'Hello World!' ${{ inputs.node-version }}
 
-    # - name: Use Node.js ${{ inputs.node-version }}
-    #   uses: actions/setup-node@v3
-    #   with:
-    #     node-version: ${{ inputs.node-version }}
-    #     cache: 'npm'
+    - name: Use Node.js ${{ inputs.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: 'npm'
 
     # - name: package install
     #   shell: bash
