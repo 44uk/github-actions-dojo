@@ -13,11 +13,11 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+      - uses: actions/checkout@v3
+
       - uses: ./.github/actions/setup
         with:
           node-version: ${{ matrix.node-version }}
-
-      - uses: actions/checkout@v3
 
       - name: Output
         run: echo 'Hello World!'
