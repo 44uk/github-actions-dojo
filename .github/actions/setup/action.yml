@@ -15,7 +15,9 @@ runs:
         cache: 'npm'
 
     - name: package install
+      shell: bash
       run: yarn
 
     - name: firebase tools install
+      shell: bash
       run: yarn global add firebase-tools
