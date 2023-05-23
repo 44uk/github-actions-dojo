@@ -1,0 +1,8 @@
+{
+  "name": "github-actions-dojo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:44uk/github-actions-dojo.git",
+  "author": "Yoshiyuki IEYAMA <yukku0423+git@gmail.com>",
+  "license": "MIT"
+}
