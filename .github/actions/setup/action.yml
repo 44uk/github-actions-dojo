@@ -15,10 +15,10 @@ runs:
         node-version: ${{ inputs.node-version }}
         cache: 'npm'
 
-    # - name: package install
-    #   shell: bash
-    #   run: yarn
+    - name: package install
+      shell: bash
+      run: yarn
 
-    # - name: firebase tools install
-    #   shell: bash
-    #   run: yarn global add firebase-tools
+    - name: firebase tools install
+      shell: bash
+      run: yarn global add firebase-tools
