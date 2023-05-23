@@ -12,16 +12,16 @@ runs:
       shell: bash
       run: echo 'Hello World!' ${{ inputs.node-version }}
 
-    - name: Use Node.js ${{ inputs.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ inputs.node-version }}
-        cache: 'npm'
+    # - name: Use Node.js ${{ inputs.node-version }}
+    #   uses: actions/setup-node@v3
+    #   with:
+    #     node-version: ${{ inputs.node-version }}
+    #     cache: 'npm'
 
-    - name: package install
-      shell: bash
-      run: yarn
+    # - name: package install
+    #   shell: bash
+    #   run: yarn
 
-    - name: firebase tools install
-      shell: bash
-      run: yarn global add firebase-tools
+    # - name: firebase tools install
+    #   shell: bash
+    #   run: yarn global add firebase-tools
