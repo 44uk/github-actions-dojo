@@ -7,7 +7,7 @@ inputs:
     required: true
 
 runs:
-  using: setup Node.js & yarn
+  using: composite
   steps:
     # - name: Output
     #   shell: bash
