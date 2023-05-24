@@ -20,7 +20,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Output
-        run: echo 'Hello World!'
+        run: echo "$ENV_NAME"
+        env:
+          ENV_NAME: ${{ job.environment }}
 
       # - name: generate env key
       #   run: echo "$CLIENT_ENV" > src/client/.env
