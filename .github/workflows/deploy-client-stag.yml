@@ -22,7 +22,7 @@ jobs:
       - name: Output
         run: echo "$ENV_NAME"
         env:
-          ENV_NAME: ${{ job.environment }}
+          ENV_NAME: demo
 
       # - name: generate env key
       #   run: echo "$CLIENT_ENV" > src/client/.env
